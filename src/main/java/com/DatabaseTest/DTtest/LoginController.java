@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author deimo
  */
 @RestController
-@CrossOrigin(origins = "https://argbackend.onrender.com")
+@CrossOrigin(origins = "https://front-endargprograma2.web.app")
 public class LoginController {
     
     @Autowired IuserService interUser;
