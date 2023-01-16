@@ -1,0 +1,6 @@
+com\DatabaseTest\DTtest\UserRepository.class
+com\DatabaseTest\DTtest\UserService.class
+com\DatabaseTest\DTtest\DTtestApplication.class
+com\DatabaseTest\DTtest\IuserService.class
+com\DatabaseTest\DTtest\LoginController.class
+com\DatabaseTest\DTtest\User.class
