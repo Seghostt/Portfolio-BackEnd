@@ -4,16 +4,8 @@
  */
 package com.DatabaseTest.DTtest;
 
-import jakarta.persistence.Query;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -56,24 +48,24 @@ public class UserService implements IuserService{
         return null;    
     }
     
-    static final String DB_URL = "jdbc:mysql://localhost:3306/prueba_jpa?useSSL=false&serverTimezone=UTC";
-    static final String USER = "admin";  
-    static final String PASS = "admin";
-    static  String Query = "";
+//    static final String DB_URL = "jdbc:mysql://localhost:3306/prueba_jpa?useSSL=false&serverTimezone=UTC";
+//    static final String USER = "admin";  
+//    static final String PASS = "admin";
+//    static  String Query = "";
     
     @Override
     public void uploadTextChange(User user){
-         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-         Statement stmt = conn.createStatement();)
-         {
-             //String fetchsql = "SELECT * FROM user WHERE username ="+ user.getUsername() + "" ;
-             Query = "UPDATE `user` SET `id`='" + user.getId() +"',`password`='" + user.getPassword() +"',`username`= '"+ user.getUsername()+"',`text_mod`='"+ user.getTextMod() +"',`text_mod2`='"+ user.getTextMod2() +"' WHERE username = '"+user.getUsername()+"'";
-             stmt.executeUpdate(Query);
-                      
-         }   
-         catch (SQLException ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
+//         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+//         Statement stmt = conn.createStatement();)
+//         {
+//             //String fetchsql = "SELECT * FROM user WHERE username ="+ user.getUsername() + "" ;
+//             Query = "UPDATE `user` SET `id`='" + user.getId() +"',`password`='" + user.getPassword() +"',`username`= '"+ user.getUsername()+"',`text_mod`='"+ user.getTextMod() +"',`text_mod2`='"+ user.getTextMod2() +"' WHERE username = '"+user.getUsername()+"'";
+//             stmt.executeUpdate(Query);
+//                      
+//         }   
+//         catch (SQLException ex) {
+//            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    
     }   
 }
