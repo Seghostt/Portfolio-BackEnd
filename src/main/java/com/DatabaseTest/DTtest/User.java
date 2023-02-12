@@ -25,10 +25,11 @@ public class User {
     private long id;
     private String username;
     private String password;
-    private String TextMod;
-    private String TextMod2;
+    private String textMod1;
+    private String textMod2;
     
-    public User(){
+    public User()
+    {
         username = "";
         password = "";
     }

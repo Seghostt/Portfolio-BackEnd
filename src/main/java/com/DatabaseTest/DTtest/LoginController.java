@@ -15,28 +15,46 @@ import org.springframework.web.bind.annotation.RestController;
  * @author deimo
  */
 @RestController
-@CrossOrigin(origins = "https://front-endargprograma2.web.app")
+@CrossOrigin(origins = "http://localhost:4200")
 public class LoginController {
     
     @Autowired IuserService interUser;
     
     @PostMapping("/Register")
-    public void registerUser(@RequestBody User req){
-        System.out.println(req.getUsername() + req.getPassword());
+    public Boolean registerUser(@RequestBody User req)
+    {
+        User user = interUser.findUserWithName(req.getUsername());
+        if(user != null)
+            return false;
+        
+        String default_text = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit, neque! Non, adipisci amet dolore cumque inventore, repudiandae ex ad fugit nemo ea laudantium dolorum pariatur recusandae. Atque quas animi modi!";  
+        req.setTextMod1(default_text);
+        req.setTextMod2(default_text);
         interUser.saveUser(req);
+        return true;
     }
     
     @PostMapping("/Login")
-    public boolean loginUser(@RequestBody User req){
+    public UserLoginInfo loginUser(@RequestBody User req)
+    {
+        UserLoginInfo ret = new UserLoginInfo();
         if(req.IsEmpty())
-         return false;
-        User user = interUser.findUserWithName(req.getUsername());
+            return ret;
         
-        return !user.IsEmpty() && user.IsEqual(req);
+        User user = interUser.findUserWithName(req.getUsername());
+        if(user == null || user.IsEmpty() || !user.IsEqual(req))
+            return ret;
+        
+        ret.setSuccess(true);
+        ret.setTextMod1(user.getTextMod1());
+        ret.setTextMod2(user.getTextMod2());
+        return ret;
     }
     
     @PostMapping("/SaveChanges")
-    public void saveChanges(@RequestBody User req){
+    public Boolean saveChanges(@RequestBody TextMod req)
+    {
         interUser.uploadTextChange(req);
+        return true;
     }
 }

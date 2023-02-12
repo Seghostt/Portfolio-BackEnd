@@ -1,3 +1,5 @@
+com\DatabaseTest\DTtest\TextMod.class
+com\DatabaseTest\DTtest\UserLoginInfo.class
 com\DatabaseTest\DTtest\UserRepository.class
 com\DatabaseTest\DTtest\UserService.class
 WebConfig.class

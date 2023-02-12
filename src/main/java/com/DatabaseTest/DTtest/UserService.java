@@ -48,24 +48,20 @@ public class UserService implements IuserService{
         return null;    
     }
     
-//    static final String DB_URL = "jdbc:mysql://localhost:3306/prueba_jpa?useSSL=false&serverTimezone=UTC";
-//    static final String USER = "admin";  
-//    static final String PASS = "admin";
-//    static  String Query = "";
-    
     @Override
-    public void uploadTextChange(User user){
-//         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-//         Statement stmt = conn.createStatement();)
-//         {
-//             //String fetchsql = "SELECT * FROM user WHERE username ="+ user.getUsername() + "" ;
-//             Query = "UPDATE `user` SET `id`='" + user.getId() +"',`password`='" + user.getPassword() +"',`username`= '"+ user.getUsername()+"',`text_mod`='"+ user.getTextMod() +"',`text_mod2`='"+ user.getTextMod2() +"' WHERE username = '"+user.getUsername()+"'";
-//             stmt.executeUpdate(Query);
-//                      
-//         }   
-//         catch (SQLException ex) {
-//            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    
-    }   
+    public Boolean uploadTextChange(TextMod data)
+    {
+        int ret = 0;
+        if(data.getIndex() == 0)
+            ret = userRepository.updateTextMod1(data.getUsername(), data.getText());
+        else
+            ret = userRepository.updateTextMod2(data.getUsername(), data.getText());
+        
+        if(ret == 1)
+        {
+            System.out.println("Success Updated Text from backend");
+            return true;
+        }
+        return false;
+    }
 }

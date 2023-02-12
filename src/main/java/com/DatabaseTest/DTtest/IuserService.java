@@ -21,5 +21,5 @@ public interface IuserService {
     
     public User findUserWithName(String name);
     
-    public void uploadTextChange(User user);
+    public Boolean uploadTextChange(TextMod data);
 }
