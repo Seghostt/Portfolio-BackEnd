@@ -2,8 +2,9 @@ com\DatabaseTest\DTtest\TextMod.class
 com\DatabaseTest\DTtest\UserLoginInfo.class
 com\DatabaseTest\DTtest\UserRepository.class
 com\DatabaseTest\DTtest\UserService.class
-WebConfig.class
+com\DatabaseTest\DTtest\Cors.class
 com\DatabaseTest\DTtest\DTtestApplication.class
 com\DatabaseTest\DTtest\IuserService.class
 com\DatabaseTest\DTtest\LoginController.class
+com\DatabaseTest\DTtest\WebConfig.class
 com\DatabaseTest\DTtest\User.class
